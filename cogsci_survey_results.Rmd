@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r Libraries needed, message=FALSE, warning=FALSE, echo=FALSE}
-libs <- c("knitr","kableExtra","bookdown","here","dplyr","tidytext","wordcloud", "RColorBrewer")
+libs <- c("knitr","kableExtra","bookdown","here","dplyr","tidytext","wordcloud","ggplot2", "RColorBrewer")
 invisible(lapply(libs, library, character.only = TRUE))
 ```
 
@@ -41,7 +41,7 @@ div.tldr { background-color:rgb(134, 193, 185); border-radius: 5px; padding: 20p
 
 **TL;DR**:
 Students do not think about their careers when they choose cognitive science studies. Most of them just want to gain knowledge and have not thought how to fulfill expectations they have regarding their studies. 
-Most do not know what job do they want to have in the future. There isn't one industry that is targeted by those that do know: similar number of first year students want to pursue academic, IT, creative, and health related careers.
+Most do not know what job they want to have in the future. Moreover, there isn't one industry that is targeted by those that do know: similar number of first year students want to pursue academic, IT, creative, and health related careers.
 
 </div>
 
@@ -62,12 +62,13 @@ Data was tagged by hand.
 
 In total, `r nrow(data)` students filled the survey. `r sum(!complete.cases(data))` of those left one or more questions unanswered. There were `r nrow(data[data$sex =="f" & !is.na(data$sex),])` women and `r nrow(data[data$sex =="m" & !is.na(data$sex),])` men. In `r sum(is.na(data$sex))` cases the sex could not be determined.
 
-**Dataset can be downloaded from [this repo](https://github.com/MiWy/cogsci_survey)**
+**Dataset can be downloaded from [this repo](https://github.com/MiWy/cogsci_survey).**
 
 # Results
 
 ## What is cognitive science?
-New students know what cognitive science in a wide sense is: a science about cognition, mind and brain. They differ, however, in their understanding of CS structure. Associating CS with psychology, for example, is almost as frequent as stating that the cognitive science is interdisciplinary. All remaining disciplines---biology, philosophy, artifical intelligence research---are relatively rarely mentioned. This suggest that first year students are in most part unaware of the interdisciplinary nature of cognitive science.
+New students know what cognitive science in a wide sense is: a science about cognition, mind and brain. They differ, however, in their understanding of CS structure. Associating CS with psychology, for example, is almost as frequent as stating that the cognitive science is interdisciplinary. All remaining disciplines---biology, philosophy, artifical intelligence research---are relatively rarely mentioned. This suggest that first year students are in most part unaware of the interdisciplinary nature of cognitive science. Perhaps the way CS is marketed in promotional materials need to be adjusted.
+
 For convenience, labels used by students to define CS are presented both as a wordcloud in Figure \@ref(fig:defscloud) and in Table \@ref(tab:defstable) below.
 
 ```{r, defscloud, fig.align="center", fig.cap="Word cloud of the most common ways of defining CS among first year students.", message=FALSE, warning=FALSE, echo=FALSE}
@@ -89,19 +90,16 @@ kable(list(defs[rows,1:2],
 ```
 
 ## What are your expectations?
-Expectations grouped into categories are presented in Table \@ref(tab:topexpecttable). For almost all students, studying has an epistemic end goal, i.e., they want to gain knowledge. Surprisingly less people chose to study CS to help themselves find a job then to find and/or develop their passions. This indicate that the motivation for choosing CS are not monetary or career-related. Moreover, together with the modest number of any other expectations, results suggest that the issue in question is not thought through by young people. Full list of expectations is presented in Table \@ref(tab:expecttable).
+Expectations grouped into categories are presented in Figure \@ref(fig:topexpectfig). For almost all students, studying has an epistemic end goal, i.e., they want to gain knowledge. Surprisingly, less people chose to study CS to help themselves find a job then to find and/or develop their passions. This indicate that motivations for choosing CS are not monetary or career-related. Moreover, together with the modest number of any other expectations, results suggest that the issue in question is not thought through by young people. Full list of expectations is presented in Table \@ref(tab:expecttable).
 
-```{r, topexpecttable,message=FALSE, warning=FALSE, echo=FALSE}
+```{r topexpectfig,message=FALSE,warning=FALSE,echo=FALSE, fig.cap="Top level expectations first year students have, related to studying cognitive science."}
 test <- data
 test <- test[!is.na(test$top_level_expectations),]
 expect <- test %>%
   unnest_tokens(word, top_level_expectations) %>%
   count(word, sort = TRUE)
-colnames(expect) <- c("Expectation", "Frequency")
-kable(expect,
-      booktabs = T, align="l",
-      caption="Top level expectations first year students have, related to studying cognitive science.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = F)
+ggplot(data=expect , aes(x=reorder(word, n), y=n, fill=n)) +
+  geom_bar(stat="identity") + geom_text(aes(label=n), hjust=-0.1, color="black", size=3.5) + theme_classic()   + theme(text=element_text(size=14)) + scale_color_brewer(palette="Dark2") + coord_flip() + xlab("Expectation") + ylab("Frequency")
 ```
 
 ```{r, expecttable,message=FALSE, warning=FALSE, echo=FALSE}
@@ -155,21 +153,15 @@ kable(list(requir[rows,1:2],
 
 ## Who do you want to be?
 `r sum(is.na(data$job))` students did not answer this question. Most of those that did does not have a desired job or even an industry. Out of those that do, most students want to pursue career in the academia. Given the variety of choices and the low number of students that explicitly expect CS studies to help them in their careers, results indicate that new students differentiate between their academic activities and future careers.
-Industry types and number of students interested in them are presented in Table \@ref(tab:topjobtable).
-```{r, topjobtable,message=FALSE, warning=FALSE, echo=FALSE}
+Industry types and number of students interested in them are presented in Figure \@ref(fig:topjobfig).
+```{r, topjobfig,message=FALSE, warning=FALSE, echo=FALSE,fig.cap="Top level types of jobs that first year students would like to have."}
 test <- data
 test <- test[!is.na(test$top_level_job),]
 job <- test %>%
   unnest_tokens(word, top_level_job) %>%
   count(word, sort = TRUE)
-colnames(job) <- c("Expectation", "Frequency")
-rows <- seq_len(nrow(job) %/% 2)
-kable(list(job[rows,1:2],
-           matrix(numeric(), nrow=0, ncol=1),
-           job[-rows,1:2]),
-      booktabs = T, align="l",
-      caption="Top level types of jobs that first year students would like to have.") %>%
-  kable_styling(bootstrap_options = "striped", full_width = F)
+ggplot(data=job , aes(x=reorder(word, n), y=n, fill=n)) +
+  geom_bar(stat="identity") + geom_text(aes(label=n), hjust=-0.1, color="black", size=3.5) + theme_classic()   + theme(text=element_text(size=14)) + scale_color_brewer(palette="Dark2") + coord_flip() + xlab("Expectation") + ylab("Frequency")
 ```
 
 Jobs were coded as follows: **sektor_it** - ux, programista, frontend, si, sektor_it (unspecified); **sektor_zdrowie** - terapeuta, psycholog, neurolog, terapeuta_behawioralny; **sektor_edukacji** - szkoleniowiec_edukacji, nauczyciel_pianistyki, nauka_języków_obcych; **nie_wiem** - nie_wiem, studiuję_by_wybrać_karierę; **akademia** - naukowiec, badacz_autyzmu, badacz_społeczny, praca_w_laboratorium, badacz_substancji_psychodelicznych; **sektor_korporacyjny** - hr (human resources), pr (public relations), pm (product manager), inżynier_finansowy; **sektor_kreatywny** - copywriter, agencja_reklamowa, sektor_grafiki, pisarz, tłumacz, sektor_sztuki; **inne** - remainings ones.
@@ -190,3 +182,12 @@ kable(list(job[rows,1:2],
       caption="Jobs that first year students would like to have.") %>%
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
+
+## Conclusions
+
+Students do not think about their careers when they choose cognitive science studies. Most of them just want to gain knowledge and have not thought how to fulfill expectations they have regarding their studies. 
+
+Most do not know what job they want to have in the future. Moreover, there isn't one industry that is targeted by those that do know: similar number of first year students want to pursue academic, IT, creative, and health related careers. The data acquired here suggest that there is no simple answer on how to make the CS curriculum better. Given the variety of students' dream jobs, it should be highly flexible, allowing for individual changes. For example, a more research-oriented and a more IT-oriented paths, data suggest, would be attractive for students. On the other hand, given the amount of students that do not know what do they want to do in the future, a default, recommended, path through CS studies should also be available for students, focusing on skills and knowledge useful in a wide range of jobs. Especially those that are prognosed to be in high-demand in Poland in the near future.
+
+Data from the second and especially the third year students is needed to adjust for changes related to being closer to graduation. 
+
