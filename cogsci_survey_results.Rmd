@@ -187,7 +187,12 @@ kable(list(job[rows,1:2],
 
 Students do not think about their careers when they choose cognitive science studies. Most of them just want to gain knowledge and have not thought how to fulfill expectations they have regarding their studies. 
 
-Most do not know what job they want to have in the future. Moreover, there isn't one industry that is targeted by those that do know: similar number of first year students want to pursue academic, IT, creative, and health related careers. The data acquired here suggest that there is no simple answer on how to make the CS curriculum better. Given the variety of students' dream jobs, it should be highly flexible, allowing for individual changes. For example, a more research-oriented and a more IT-oriented paths, data suggest, would be attractive for students. On the other hand, given the amount of students that do not know what do they want to do in the future, a default, recommended, path through CS studies should also be available for students, focusing on skills and knowledge useful in a wide range of jobs. Especially those that are prognosed to be in high-demand in Poland in the near future.
+Most do not know what job they want to have in the future. Moreover, there isn't one industry that is targeted by those that do know: similar numbers of first year students want to pursue academic, IT, creative, and health related careers. 
+
+Results indicate that young people generally do not have their higher education years planned out. It potentially gives an opportunity to shape newcoming generation of students not only in terms of CS knowledge, but also in terms of increasing students' awareness about the roles they can, as CS graduates, play in the society. 
+
+The data acquired here suggest that there is no simple answer on how to make the CS curriculum better. 
+Given the variety of students' dream jobs, it should be highly flexible, allowing for individual changes. For example, a more research-oriented and a more IT-oriented paths, data suggest, would be attractive for students. On the other hand, given the amount of students that do not know what do they want to do in the future, a default, recommended, path through CS studies should also be available for students, focusing on skills and knowledge useful in a wide range of jobs. Especially those that are prognosed to be in high-demand in Poland in the near future.
 
 Data from the second and especially the third year students is needed to adjust for changes related to being closer to graduation. 
 
