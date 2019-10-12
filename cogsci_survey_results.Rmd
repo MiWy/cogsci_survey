@@ -4,6 +4,7 @@ author: "Michał Wyrwa"
 date: "`r Sys.Date()`"
 fontsize: 12pt
 monofont: "Source Code Pro"
+output_dir: "docs"
 output: 
   bookdown::html_document2:
     toc: true
