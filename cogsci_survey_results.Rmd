@@ -19,6 +19,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 ```{r Libraries needed, message=FALSE, warning=FALSE, echo=FALSE}
@@ -60,6 +61,8 @@ The responses on the second question are divided into two separate categories: e
 Data was tagged by hand.
 
 In total, `r nrow(data)` students filled the survey. `r sum(!complete.cases(data))` of those left one or more questions unanswered. There were `r nrow(data[data$sex =="f" & !is.na(data$sex),])` women and `r nrow(data[data$sex =="m" & !is.na(data$sex),])` men. In `r sum(is.na(data$sex))` cases the sex could not be determined.
+
+**Dataset can be downloaded from [this repo](https://github.com/MiWy/cogsci_survey)**
 
 # Results
 
