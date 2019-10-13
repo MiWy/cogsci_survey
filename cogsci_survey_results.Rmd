@@ -161,7 +161,7 @@ job <- test %>%
   unnest_tokens(word, top_level_job) %>%
   count(word, sort = TRUE)
 ggplot(data=job , aes(x=reorder(word, n), y=n, fill=n)) +
-  geom_bar(stat="identity") + geom_text(aes(label=n), hjust=-0.1, color="black", size=3.5) + theme_classic()   + theme(text=element_text(size=14)) + scale_color_brewer(palette="Dark2") + coord_flip() + xlab("Expectation") + ylab("Frequency")
+  geom_bar(stat="identity") + geom_text(aes(label=n), hjust=-0.1, color="black", size=3.5) + theme_classic()   + theme(text=element_text(size=14)) + scale_color_brewer(palette="Dark2") + coord_flip() + xlab("Job") + ylab("Frequency")
 ```
 
 Jobs were coded as follows: **sektor_it** - ux, programista, frontend, si, sektor_it (unspecified); **sektor_zdrowie** - terapeuta, psycholog, neurolog, terapeuta_behawioralny; **sektor_edukacji** - szkoleniowiec_edukacji, nauczyciel_pianistyki, nauka_języków_obcych; **nie_wiem** - nie_wiem, studiuję_by_wybrać_karierę; **akademia** - naukowiec, badacz_autyzmu, badacz_społeczny, praca_w_laboratorium, badacz_substancji_psychodelicznych; **sektor_korporacyjny** - hr (human resources), pr (public relations), pm (product manager), inżynier_finansowy; **sektor_kreatywny** - copywriter, agencja_reklamowa, sektor_grafiki, pisarz, tłumacz, sektor_sztuki; **inne** - remainings ones.
@@ -189,10 +189,10 @@ Students do not think about their careers when they choose cognitive science stu
 
 Most do not know what job they want to have in the future. Moreover, there isn't one industry that is targeted by those that do know: similar numbers of first year students want to pursue academic, IT, creative, and health related careers. 
 
-Results indicate that young people generally do not have their higher education years planned out. It potentially gives an opportunity to shape newcoming generation of students not only in terms of CS knowledge, but also in terms of increasing students' awareness about the roles they can, as CS graduates, play in the society. 
+Results indicate that young people generally do not have their higher education years planned out. It potentially gives an opportunity to shape newcoming generation of students not only in terms of CS knowledge, but also in terms of increasing student awareness about the roles they can, as CS graduates, play in the society. 
 
 The data acquired here suggest that there is no simple answer on how to make the CS curriculum better. 
-Given the variety of students' dream jobs, it should be highly flexible, allowing for individual changes. For example, a more research-oriented and a more IT-oriented paths, data suggest, would be attractive for students. On the other hand, given the amount of students that do not know what do they want to do in the future, a default, recommended, path through CS studies should also be available for students, focusing on skills and knowledge useful in a wide range of jobs. Especially those that are prognosed to be in high-demand in Poland in the near future.
+Given the variety of student dream jobs, it should be highly flexible, allowing for individual changes. For example, a more research-oriented and a more IT-oriented paths, data suggest, would be attractive for students. On the other hand, given the amount of students that do not know what do they want to do in the future, a default, recommended, path through CS studies should also be available for students, focusing on skills and knowledge useful in a wide range of jobs. Especially those that are prognosed to be in high-demand in Poland in the near future.
 
 Data from the second and especially the third year students is needed to adjust for changes related to being closer to graduation. 
 
