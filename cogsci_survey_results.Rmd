@@ -173,7 +173,7 @@ test <- test[!is.na(test$job),]
 job <- test %>%
   unnest_tokens(word, job) %>%
   count(word, sort = TRUE)
-colnames(job) <- c("Requirement", "Frequency")
+colnames(job) <- c("Job", "Frequency")
 rows <- seq_len(nrow(job) %/% 2)
 kable(list(job[rows,1:2],
            matrix(numeric(), nrow=0, ncol=1),
