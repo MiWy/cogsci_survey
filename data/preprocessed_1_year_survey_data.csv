@@ -6,7 +6,7 @@ no;sex;definition;top_level_expectations;expectations;top_level_requirements;req
 5;m;nauka, mózg, poznanie;wiedza;zdobycie_wiedzy;wewnętrzne, zewnętrzne;motywacja_własna, sposób_nauczania;nie_wiem;duma_mamy, nie_wiem
 6;f;studia, umysł, technologia;wiedza, ludzie, pasja;dobra_atmosfera, ciekawe_studia, ludzie_pasjonaci;;;akademia, inne, sektor_kreatywny;dobry_człowiek, naukowiec, agencja_reklamowa
 7;;interdyscyplinarność, poznanie, mózg, SI, informatyka, biologia, matematyka, lingwistyka;wiedza, praca;zdobycie_wiedzy, przygotowanie_do_rynku_pracy, przydatna_wiedza;;;;
-8;f;interdyscyplinarność, nauka, mózg;wiedza;zdobycie_wiedzy, wpływ_wielojęzyczności_na_mózg;;;;nie_wiem
+8;f;interdyscyplinarność, nauka, mózg;wiedza;zdobycie_wiedzy, wpływ_wielojęzyczności_na_mózg;;;nie_wiem;nie_wiem
 9;f;interdyscyplinarność, nauka, umysł, człowiek, mózg;wiedza, umiejętność;zdobycie_wiedzy, umiejętność_IT, szeroka_wiedza, przydatna_wiedza;;;sektor_kreatywny, sektor_korporacyjny;HR, copywriter
 10;f;psychologia, scifi;pasja;odnalezienie_pasji;wewnętrzne;motywacja_własna;sektor_zdrowie;terapeuta
 11;f;nauka, umysł, poznanie;wiedza;zdobycie_wiedzy, przydatna_wiedza;wewnętrzne, zewnętrzne;motywacja_własna, sposób_nauczania, otwartość_prowadzących;sektor_edukacji;aktywista_społeczny, sektor_edukacji
@@ -64,7 +64,7 @@ no;sex;definition;top_level_expectations;expectations;top_level_requirements;req
 63;f;nauka, interdyscyplinarność, świadomość, poznanie, SI, człowiek;wiedza;zdobycie_wiedzy;;;nie_wiem;nie_wiem
 64;f;nauka, mózg, poznanie;wiedza;zdobycie_wiedzy;;;inne;dobry_człowiek, spełniony_człowiek
 65;m;nauka, umysł, zmysły, poznanie, inteligencja, człowiek;wiedza;zdobycie_wiedzy, bogactwo, przydatna_wiedza;wewnętrzne;motywacja_własna;sektor_IT, inne;sektor_IT, UX, milioner
-66;f;nauka, poznanie, umysł, mózg, emocje;wiedza, pasja;zdobycie_wiedzy, ciekawość;;;;wątpliwe
+66;f;nauka, poznanie, umysł, mózg, emocje;wiedza, pasja;zdobycie_wiedzy, ciekawość;;;nie_wiem;wątpliwe
 67;f;nauka, poznanie;pasja;motywacja, podtrzymanie_motywacji;wewnętrzne, zewnętrzne;motywacja_własna, motywacja_prowadzących;sektor_IT;sektor_IT, UX, szczęśliwy_człowiek
 68;f;nauka, mózg, człowiek, SI;wiedza, praca;przygotowanie_do_rynku_pracy, znalezienie_pracy, przydatna_wiedza;;;;
 69;f;psychologia;prowadzący_i_program;studiowanie_po_angielsku, wyjazdy;;;sektor_zdrowie;neurolog
